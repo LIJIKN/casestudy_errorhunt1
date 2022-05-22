@@ -2,6 +2,7 @@ const express = require('express');
 const path = require ('path'); 
 const bodyParser = require('body-parser');           //patr 1 error//
 const cors = require('cors');
+require('dotenv').config();
 
 const nav= [
     {
@@ -57,6 +58,11 @@ app.get('/',function(req,res){
 
 
 
-app.listen(5000,()=>{
-    console.log("Server Ready on 5000");                         //  part 1 error //
+// For Heroku
+const PORT = (process.env.PORT || 5000);
+
+// PORT number changed  (Part1#5)
+app.listen(PORT, () => {
+  console.log(`Server Ready on ${PORT}`);
 });
+                        
